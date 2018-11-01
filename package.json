@@ -3,19 +3,25 @@
   "name": "martin.dybal.personal.website",
   "private": true,
   "devDependencies": {
+    "amp-inline-critical-cli": "0.0.5",
+    "autoprefixer": "^9.3.1",
     "browser-sync": "^2.23.7",
+    "chokidar-cli": "^1.2.1",
     "node-sass": "4.5.3",
-    "watch": "1.0.2"
+    "postcss-cli": "^6.0.1"
   },
   "scripts": {
-    "browser-sync": "browser-sync start --server --files \"output/css/*.css\" \"*.html\"",
-    "compile:scss": "node-sass Styles/style.scss -o output/css/",
-    "watch:scss": "watch \"npm run compile:scss\" Styles"
+    "browser-sync": "browser-sync start --server --files index.html --reloadDelay 2000",
+    "compile:scss": "node-sass Styles/style.scss -o output/css/ | postcss output/css/style.css -o output/css/style.css",
+    "build-index-html": "amp-inline-critical-cli -c output/css/style.css -h page.html > index.html",
+    "watch:scss": "watch \"npm run compile:scss\" Styles",
+    "watch:html": "chokidar \"page.html\" \"output/css/style.css\" -c \"npm run build-index-html\"",
+    "watch": "npm run watch:html | npm run watch:scss"
   },
   "-vs-binding": {
     "ProjectOpened": [
       "browser-sync",
-      "watch:scss"
+      "watch"
     ]
   }
 }

@@ -1,117 +1,73 @@
 @import "./../_variables.scss";
-@import "./../icons.scss";
-
 .about {
     display: flex;
     flex-direction: column;
     background-color: #f9f9f9;
-
-    &__me
-    {                
+    &__me {
         display: flex;
-        
         @include res-min-tablet {
-                flex-direction: column;
+            flex-direction: column;
         }
-        
         &__profile-photo {
             display: flex;
             align-items: center;
             justify-content: center;
-
             height: 200px;
             width: 200px;
-
             @include res-min-tablet {
                 height: 300px;
                 width: 300px;
             }
-    
-            &__img{
+            &__img {
                 height: 150px;
                 width: 150px;
                 min-height: 150px;
                 min-width: 150px;
-
                 background-image: url('/output/img/profile-photo.jpg');
                 background-size: cover;
                 background-position: center;
                 border-radius: 50%;
             }
         }
-
-        &__description{
+        &__description {
             display: flex;
             flex-direction: column;
-
             @include res-max-tablet {
                 align-self: center;
             }
-
             align-items: center;
             margin-bottom: 2rem;
-
-            &__name{
+            &__name {
                 font-size: 2.5rem;
                 font-weight: 400;
             }
-            
-            &__position{
+            &__position {
                 font-size: 1.5rem;
                 font-weight: 400;
-            }    
+            }
         }
     }
-
-    &__nav{
+    &__nav {
         display: flex;
         width: 100%;
         max-width: 460px;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
-
-        &__link{
-            @extend .icon;
-            width: 3rem;
+        &__link {
             text-decoration: none;
-            font-size: 2.5rem;
-            color: black;
-            
-            &--linkedIn {
-                &:before {
-                    content: $fa-var-linkedin;
-                }
-                &:hover {
-                    color: #0077B7;
-                }
+            fill: black;
+            &--linkedIn:hover {
+                fill: #0077B7;
             }
-
-            &--twitter {
-                &:before {
-                    content: $fa-var-twitter;
-                }
-                &:hover {
-                    color: #1da1f2;
-                }
+            &--twitter:hover {
+                fill: #1da1f2;
             }
-
-            &--github {
-                &:before {
-                    content: $fa-var-github;
-                }
-                &:hover {
-                    color: #24292e;
-                }
+            &--github:hover {
+                fill: #575C61;
             }
-
-            &--email {
-                &:before {
-                    content: $fa-var-mail;
-                }
-                &:hover {
-                    color: #3176bb;
-                }
+            &--email:hover {
+                fill: #0389ff;
             }
         }
     }
