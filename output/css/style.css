@@ -200,8 +200,8 @@ hr {
     display: none; }
   @media only screen and (min-width: 813px) {
     .about__headline, .about__links {
-      position: sticky;
       position: -webkit-sticky;
+      position: sticky;
       z-index: 1;
       background-color: #f9f9f9;
       top: 1rem;
