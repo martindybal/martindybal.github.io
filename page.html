@@ -34,6 +34,7 @@
         ]
     }
     </script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 </head>
 
 <body>
@@ -80,6 +81,19 @@
             </span> -->
         </section>
     </div>
+
+    <amp-analytics type="gtag" data-credentials="include">
+        <script type="application/json">
+        {
+            "vars" : {
+                "gtag_id": "UA-129033963-1",
+                "config" : {
+                    "UA-129033963-1": { "groups": "default" }
+                }
+            }
+        }
+        </script>
+    </amp-analytics>
 </body>
 
 </html>
