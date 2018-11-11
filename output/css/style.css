@@ -122,13 +122,6 @@ hr {
           height: 300px;
           width: 300px; } }
       .about__me__profile-photo__img {
-        height: 150px;
-        width: 150px;
-        min-height: 150px;
-        min-width: 150px;
-        background-image: url("/output/img/profile-photo.jpg");
-        background-size: cover;
-        background-position: center;
         border-radius: 50%; }
     .about__me__description {
       display: -webkit-box;
