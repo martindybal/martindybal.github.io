@@ -16,7 +16,8 @@
     "build-index-html": "amp-inline-critical-cli -c output/css/style.css -h page.html > index.html",
     "watch:scss": "watch \"npm run compile:scss\" Styles",
     "watch:html": "chokidar \"page.html\" \"output/css/style.css\" -c \"npm run build-index-html\"",
-    "watch": "npm run watch:html | npm run watch:scss"
+    "watch": "npm run watch:html | npm run watch:scss",
+    "start": "npm run watch | npm run build-index-html | npm run browser-sync"
   },
   "-vs-binding": {
     "ProjectOpened": [
