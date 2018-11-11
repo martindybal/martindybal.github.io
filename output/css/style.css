@@ -213,6 +213,8 @@ hr {
             align-self: flex-end; } }
 
 body {
+  -webkit-animation: none;
+  animation: none;
   padding: 0; }
 
 .container {
