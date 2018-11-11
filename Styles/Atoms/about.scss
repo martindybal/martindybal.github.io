@@ -1,77 +1,88 @@
 @import "./../_variables.scss";
 .about {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     background-color: #f9f9f9;
-    &__me {
-        $height: 200px;
+    padding: 1rem;
+    @include res-max-mobile {
+        grid-template-columns: 100px 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: "profile-photo headline" "links links";
+    }
+    @include res-min-mobile-max-tablet {
+        grid-template-columns: 150px 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: "profile-photo headline" "profile-photo links";
+    }
+    @include res-min-tablet {
+        grid-template-columns: 300px;
+        grid-template-rows: 300px auto auto auto 1fr;
+        grid-template-areas: "profile-photo" "headline" "links";
+    }
+    &__profile-photo {
+        grid-area: profile-photo;
         display: flex;
+        align-items: center;
+        justify-content: center;
+        @include res-max-tablet {
+            margin-right: 1rem;
+        }
+        &__img {
+            border-radius: 50%;
+        }
+    }
+    &__headline {
+        grid-area: headline;
+        -ms-grid-row: 2;
+        align-self: start;
+        margin: 0;
+        @include res-max-mobile {
+            align-self: center;
+        }
+        @include res-max-tablet {
+            -ms-grid-row: 1;
+            -ms-grid-column: 2;
+        }
         @include res-min-tablet {
-            flex-direction: column;
+            text-align: center;
         }
-        &__profile-photo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: $height;
-            width: $height;
-            @include res-min-tablet {
-                height: 300px;
-                width: 300px;
-            }
-            &__img {
-                border-radius: 50%;
-            }
+        &__name {
+            font-size: 2.5rem;
+            font-weight: 400;
         }
-        &__description {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            @include res-max-tablet {
-                height: $height;
-            }
-            @include res-min-tablet {
-                text-align: center;
-            }
-            &__name {
-                font-size: 2.5rem;
-                font-weight: 400;
-            }
-            &__position {
-                font-size: 1.5rem;
-                font-weight: 400;
-            }
+        &__position {
+            font-size: 1.5rem;
+            font-weight: 400;
         }
-        &__links {
-            display: flex;
-            width: 100%;
-            max-width: 460px;
-            flex-direction: row;
-            align-items: center;
+    }
+    &__links {
+        grid-area: links;
+        -ms-grid-row: 3;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 1rem;
+        @include res-min-mobile-max-tablet {
+            -ms-grid-row: 2;
+            -ms-grid-column: 2;
+            margin-top: 0;
+            max-width: 216px;
             justify-content: space-between;
-            @include res-max-tablet {
-                justify-content: space-between;
+        }
+        &__link {
+            text-decoration: none;
+            fill: black;
+            &--linkedIn:hover {
+                fill: #0077B7;
             }
-            @include res-min-tablet {
-                justify-content: space-around;
-                margin-top: 2rem;
+            &--twitter:hover {
+                fill: #1da1f2;
             }
-            &__link {
-                text-decoration: none;
-                fill: black;
-                &--linkedIn:hover {
-                    fill: #0077B7;
-                }
-                &--twitter:hover {
-                    fill: #1da1f2;
-                }
-                &--github:hover {
-                    fill: #575C61;
-                }
-                &--email:hover {
-                    fill: #0389ff;
-                }
+            &--github:hover {
+                fill: #575C61;
+            }
+            &--email:hover {
+                fill: #0389ff;
             }
         }
     }
