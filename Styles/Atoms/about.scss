@@ -4,36 +4,48 @@
     flex-direction: column;
     background-color: #f9f9f9;
     &__me {
+        $height: 200px;
         display: flex;
         @include res-min-tablet {
             flex-direction: column;
         }
+
+        margin-bottom: 2rem;
         &__profile-photo {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 200px;
-            width: 200px;
+            height: $height;
+            width: $height;
             @include res-min-tablet {
                 height: 300px;
                 width: 300px;
             }
+
             &__img {
                 border-radius: 50%;
             }
         }
+
         &__description {
             display: flex;
             flex-direction: column;
-            @include res-max-tablet {
-                align-self: center;
-            }
+            justify-content: center;
             align-items: center;
-            margin-bottom: 2rem;
-            &__name {
+            
+            @include res-max-tablet {
+                height: $height;
+            }
+
+            @include res-min-tablet {
+                text-align: center;
+            }
+
+            &__name {                
                 font-size: 2.5rem;
                 font-weight: 400;
             }
+
             &__position {
                 font-size: 1.5rem;
                 font-weight: 400;
@@ -47,18 +59,23 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
+
         &__link {
             text-decoration: none;
             fill: black;
+
             &--linkedIn:hover {
                 fill: #0077B7;
             }
+
             &--twitter:hover {
                 fill: #1da1f2;
             }
+
             &--github:hover {
                 fill: #575C61;
             }
+
             &--email:hover {
                 fill: #0389ff;
             }

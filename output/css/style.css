@@ -98,7 +98,8 @@ hr {
   .about__me {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    margin-bottom: 2rem; }
     @media only screen and (min-width: 769px) {
       .about__me {
         -webkit-box-orient: vertical;
@@ -131,15 +132,18 @@ hr {
       -webkit-box-direction: normal;
           -ms-flex-direction: column;
               flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
       -webkit-box-align: center;
           -ms-flex-align: center;
-              align-items: center;
-      margin-bottom: 2rem; }
+              align-items: center; }
       @media only screen and (max-width: 768px) {
         .about__me__description {
-          -ms-flex-item-align: center;
-              -ms-grid-row-align: center;
-              align-self: center; } }
+          height: 200px; } }
+      @media only screen and (min-width: 769px) {
+        .about__me__description {
+          text-align: center; } }
       .about__me__description__name {
         font-size: 2.5rem;
         font-weight: 400; }
