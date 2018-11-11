@@ -23,6 +23,7 @@
     </noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
 
     <script type="application/ld+json">
     {
@@ -58,10 +59,12 @@
                     </picture>
                 </noscript>
             </div>
-            <h1 class="about__headline">
-                <span class="about__headline__name">Martin Dybal</span><br />
-                <span class="about__headline__position">Software architect</span>
-            </h1>
+            <div class="about__headline">
+                <h1>
+                    <span class="about__headline__name">Martin Dybal</span><br />
+                    <span class="about__headline__position">Software architect</span>
+                </h1>
+            </div>
             <nav class="about__links">
                 <a title="linkedIn" class="about__links__link about__links__link--linkedIn" target="_blank" rel="noopener"
                     href="https://www.linkedin.com/in/martin-dybal/">
@@ -88,6 +91,12 @@
                     </svg>
                 </a>
             </nav>
+            <div class="about__twitter-timeline">
+                <amp-twitter width="390" height="330" layout="responsive" data-timeline-screen-name="Martin_Dybal"
+                    data-timeline-source-type="profile">
+
+                </amp-twitter>
+            </div>
         </section>
         <section class="photo">
             <!-- <span class="photo__title">

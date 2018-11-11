@@ -2,7 +2,15 @@
 .about {
     display: grid;
     background-color: #f9f9f9;
-    padding: 1rem;
+    padding: 0 1rem;
+    max-height: 100vh;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        width: 0 !important
+    }
+    @include res-max-tablet {
+        padding: 1rem;
+    }
     @include res-max-mobile {
         grid-template-columns: 100px 1fr;
         grid-template-rows: auto auto;
@@ -16,7 +24,7 @@
     @include res-min-tablet {
         grid-template-columns: 300px;
         grid-template-rows: 300px auto auto auto 1fr;
-        grid-template-areas: "profile-photo" "headline" "links";
+        grid-template-areas: "profile-photo" "headline" "links" "twitter-timeline";
     }
     &__profile-photo {
         grid-area: profile-photo;
@@ -61,7 +69,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
-        margin-top: 1rem;
+        padding-top: 1rem;
         @include res-min-mobile-max-tablet {
             -ms-grid-row: 2;
             -ms-grid-column: 2;
@@ -84,6 +92,32 @@
             &--email:hover {
                 fill: #0389ff;
             }
+        }
+    }
+    &__twitter-timeline {
+        display: none;
+    }
+    @include res-min-tablet {
+        &__headline,
+        &__links {
+            position: sticky;
+            position: -webkit-sticky;
+            z-index: 1;
+            background-color: #f9f9f9;
+            top: 1rem;
+            padding-bottom: 1rem;
+        }
+        &__links {
+            top: 0;
+        }
+        &__headline {
+            top: 4rem;
+            z-index: 2;
+        }
+        &__twitter-timeline {
+            display: block;
+            grid-area: twitter-timeline;
+            -ms-grid-row: 4;
         }
     }
 }

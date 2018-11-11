@@ -90,7 +90,14 @@ hr {
   display: -ms-grid;
   display: grid;
   background-color: #f9f9f9;
-  padding: 1rem; }
+  padding: 0 1rem;
+  max-height: 100vh;
+  overflow-y: scroll; }
+  .about::-webkit-scrollbar {
+    width: 0 !important; }
+  @media only screen and (max-width: 812px) {
+    .about {
+      padding: 1rem; } }
   @media only screen and (max-width: 480px) {
     .about {
           -ms-grid-columns: 100px 1fr;
@@ -111,7 +118,7 @@ hr {
           grid-template-columns: 300px;
           -ms-grid-rows: 300px auto auto auto 1fr;
           grid-template-rows: 300px auto auto auto 1fr;
-          grid-template-areas: "profile-photo" "headline" "links"; } }
+          grid-template-areas: "profile-photo" "headline" "links" "twitter-timeline"; } }
   .about__profile-photo {
     grid-area: profile-photo;
     display: -webkit-box;
@@ -168,7 +175,7 @@ hr {
             align-items: center;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    margin-top: 1rem; }
+    padding-top: 1rem; }
     @media only screen and (min-width: 481px) and (max-width: 812px) {
       .about__links {
         -ms-grid-row: 2;
@@ -189,6 +196,63 @@ hr {
         fill: #575C61; }
       .about__links__link--email:hover {
         fill: #0389ff; }
+  .about__twitter-timeline {
+    display: none; }
+  @media only screen and (min-width: 813px) {
+    .about__headline, .about__links {
+      position: sticky;
+      position: -webkit-sticky;
+      z-index: 1;
+      background-color: #f9f9f9;
+      top: 1rem;
+      padding-bottom: 1rem; }
+    .about__links {
+      top: 0; }
+    .about__headline {
+      top: 4rem;
+      z-index: 2; }
+    .about__twitter-timeline {
+      display: block;
+      grid-area: twitter-timeline;
+      -ms-grid-row: 4; } }
+  @media only screen and (max-width: 480px) {
+    .about__profile-photo {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1; }
+    .about__headline {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2; }
+    .about__links {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2; } }
+  @media only screen and (min-width: 481px) and (max-width: 812px) {
+    .about__profile-photo {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1; }
+    .about__headline {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2; }
+    .about__links {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1; } }
+  @media only screen and (min-width: 813px) {
+    .about__profile-photo {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1; }
+    .about__headline {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1; }
+    .about__links {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1; }
+    .about__twitter-timeline {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1; } }
 
 .photo {
   display: -webkit-box;
