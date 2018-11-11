@@ -13,10 +13,7 @@
     <link rel="amphtml" href="https://www.dybal.it/" />
 
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-analytics-0.1.js">
-    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
     <title>Software architect Martin Dybal</title>
 
@@ -24,7 +21,8 @@
     <noscript>
         <style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>
     </noscript>
-
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
     <script type="application/ld+json">
     {
@@ -49,9 +47,15 @@
     <div class="container">
         <section class="about">
             <div class="about__profile-photo">
-                <amp-img class="about__profile-photo__img" alt="Martin Dybal" sizes="(max-width: 480px) 100px, 150px" width="150px" height="150px" layout="responsive" src="/output/img//profile-photo_150.jpg" srcset="/output/img//profile-photo_100.jpg 100w, /output/img//profile-photo_150.jpg 150w, /output/img//profile-photo_200.jpg 200w, /output/img//profile-photo_250.jpg 250w, /output/img//profile-photo_300.jpg 300w"></amp-img>
+                <amp-img class="about__profile-photo__img" alt="Martin Dybal" sizes="(max-width: 480px) 100px, 150px"
+                    width="150px" height="150px" layout="responsive" src="/output/img/profile-photo_150.jpg" srcset="/output/img/profile-photo_100.jpg 100w, /output/img/profile-photo_150.jpg 150w, /output/img/profile-photo_200.jpg 200w, /output/img/profile-photo_250.jpg 250w, /output/img/profile-photo_300.jpg 300w"></amp-img>
                 <noscript>
-                    <img class="about__profile-photo__img" alt="Martin Dybal" sizes="(max-width: 480px) 100px, 150px" src="/output/img//profile-photo_150.jpg" srcset="/output/img//profile-photo_100.jpg 100w, /output/img//profile-photo_150.jpg 150w, /output/img//profile-photo_200.jpg 200w, /output/img//profile-photo_250.jpg 250w, /output/img//profile-photo_300.jpg 300w" />
+                    <!-- There can't be a img, becouse of https://github.com/ampproject/amphtml/issues/19247 -->
+                    <picture>
+                        <source media="(max-width: 480px)" sizes="100px" srcset="/output/img/profile-photo_100.jpg 100w, /output/img/profile-photo_150.jpg 150w, /output/img/profile-photo_200.jpg 200w, /output/img/profile-photo_250.jpg 250w, /output/img/profile-photo_300.jpg 300w">
+                        <source sizes="150px" srcset="/output/img/profile-photo_100.jpg 100w, /output/img/profile-photo_150.jpg 150w, /output/img/profile-photo_200.jpg 200w, /output/img/profile-photo_250.jpg 250w, /output/img/profile-photo_300.jpg 300w">
+                        <img class="about__profile-photo__img" alt="Martin Dybal" src="/output/img/profile-photo_150.jpg" />
+                    </picture>
                 </noscript>
             </div>
             <h1 class="about__headline">
