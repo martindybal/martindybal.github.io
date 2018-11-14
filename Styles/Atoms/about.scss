@@ -6,7 +6,7 @@
     max-height: 100vh;
     overflow-y: scroll;
     &::-webkit-scrollbar {
-        width: 0 !important
+        width: 0;
     }
     @include res-max-tablet {
         padding: 1rem;
