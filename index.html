@@ -1,119 +1,137 @@
-<!doctype html>
-<html amp="" lang="cs">
-
+<!DOCTYPE html>
+<html lang="cs">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-
-    <meta name="og:title" content="Software architect Martin Dybal">
-    <meta name="description" content="Dohlédnu na vývoj vašeho software">
-    <meta name="og:image" content="https://www.dybal.it/output/img/profile-photo.jpg">
-
-    <link rel="canonical" href="https://www.dybal.it/">
-    <link rel="amphtml" href="https://www.dybal.it/">
-
-    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
-    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-analytics-0.1.js">
-
-    <title>Software architect Martin Dybal</title>
-
-    <style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
-    <noscript>
-        <style amp-boilerplate="">body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>
-    </noscript>
-    <style amp-custom="">
-        body{padding:1.5rem}blockquote,dl,figure,hr,ol,p,pre,table,ul{padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:1rem}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dd,ol,ul{padding-left:1.75rem}dd{margin-left:0}blockquote{border:0;padding-left:1.75rem;margin-left:0;font-style:italic}figure{margin-left:0;margin-right:0}figure>img,figure>picture,figure>table{margin-bottom:0}fieldset{border:0}legend{padding:0 .5rem}hr{border-style:solid;opacity:.25}.about{display:-ms-grid;display:grid;background-color:#f9f9f9;padding:0 1rem;max-height:100vh;overflow-y:scroll}.about::-webkit-scrollbar{width:0}@media only screen and (max-width:812px){.about{padding:1rem}}@media only screen and (max-width:480px){.about{-ms-grid-columns:100px 1fr;grid-template-columns:100px 1fr;-ms-grid-rows:auto auto;grid-template-rows:auto auto;grid-template-areas:"profile-photo headline" "links links"}}@media only screen and (min-width:481px) and (max-width:812px){.about{-ms-grid-columns:150px 1fr;grid-template-columns:150px 1fr;-ms-grid-rows:1fr auto;grid-template-rows:1fr auto;grid-template-areas:"profile-photo headline" "profile-photo links"}}@media only screen and (min-width:813px){.about{-ms-grid-columns:300px;grid-template-columns:300px;-ms-grid-rows:300px auto auto auto 1fr;grid-template-rows:300px auto auto auto 1fr;grid-template-areas:"profile-photo" "headline" "links" "twitter-timeline"}}.about__profile-photo{grid-area:profile-photo;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}@media only screen and (max-width:812px){.about__profile-photo{margin-right:1rem}}.about__profile-photo__img{border-radius:50%}.about__headline{grid-area:headline;-ms-grid-row:2;-ms-flex-item-align:start;-ms-grid-row-align:start;align-self:start;margin:0}@media only screen and (max-width:480px){.about__headline{-ms-flex-item-align:center;-ms-grid-row-align:center;align-self:center}}@media only screen and (max-width:812px){.about__headline{-ms-grid-row:1;-ms-grid-column:2}}@media only screen and (min-width:813px){.about__headline{text-align:center}}.about__headline__name{font-size:2.5rem;font-weight:400}.about__headline__position{font-size:1.5rem;font-weight:400}.about__links{grid-area:links;-ms-grid-row:3;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-pack:distribute;justify-content:space-around;padding-top:1rem}@media only screen and (min-width:481px) and (max-width:812px){.about__links{-ms-grid-row:2;-ms-grid-column:2;margin-top:0;max-width:216px;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}}.about__links__link{text-decoration:none;fill:#000}.about__links__link--linkedIn:hover{fill:#0077b7}.about__links__link--twitter:hover{fill:#1da1f2}.about__links__link--github:hover{fill:#575c61}.about__links__link--email:hover{fill:#0389ff}.about__twitter-timeline{display:none}@media only screen and (min-width:813px){.about__headline,.about__links{position:-webkit-sticky;position:sticky;z-index:1;background-color:#f9f9f9;top:1rem;padding-bottom:1rem}.about__links{top:0}.about__headline{top:4rem;z-index:2}.about__twitter-timeline{display:block;grid-area:twitter-timeline;-ms-grid-row:4}}@media only screen and (max-width:480px){.about__profile-photo{-ms-grid-row:1;-ms-grid-column:1}.about__headline{-ms-grid-row:1;-ms-grid-column:2}.about__links{-ms-grid-row:2;-ms-grid-column:1;-ms-grid-column-span:2}}@media only screen and (min-width:481px) and (max-width:812px){.about__profile-photo{-ms-grid-row:1;-ms-grid-row-span:2;-ms-grid-column:1}.about__headline{-ms-grid-row:1;-ms-grid-column:2}.about__links{-ms-grid-row:2;-ms-grid-column:2;-ms-grid-column-span:1}}@media only screen and (min-width:813px){.about__profile-photo{-ms-grid-row:1;-ms-grid-row-span:1;-ms-grid-column:1}.about__headline{-ms-grid-row:2;-ms-grid-column:1}.about__links{-ms-grid-row:3;-ms-grid-column:1;-ms-grid-column-span:1}.about__twitter-timeline{-ms-grid-row:4;-ms-grid-column:1}}.photo{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background-image:url(/output/img/background.jpg);background-position:center;background-size:cover}.photo__title{-ms-flex-item-align:start;align-self:flex-start;color:#f9f9f9;font-size:2.5rem;margin:1rem 0 2rem 0;text-align:center}@media only screen and (min-width:813px){.photo__title{-ms-flex-item-align:end;align-self:flex-end}}body{-webkit-animation:none;animation:none;padding:0}.container{display:-ms-grid;display:grid;-ms-grid-columns:1fr;grid-template-columns:1fr;-ms-grid-rows:auto 1fr;grid-template-rows:auto 1fr;grid-template-areas:"about" "photo";height:100vh;width:100vw}@media only screen and (min-width:813px){.container{display:-ms-grid;display:grid;-ms-grid-columns:auto 1fr;grid-template-columns:auto 1fr;-ms-grid-rows:1fr;grid-template-rows:1fr;grid-template-areas:"about photo"}}.about{-ms-grid-row:1;-ms-grid-column:1;grid-area:about}.photo{-ms-grid-row:2;-ms-grid-column:1;grid-area:photo}@media only screen and (min-width:813px){.about{-ms-grid-row:1;-ms-grid-column:1}.photo{-ms-grid-row:1;-ms-grid-column:2}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Programátor, který pomáhá lidem skrze inovativní projekty.">
+    <title>Martin Dybal - Programátor, který pomáhá lidem</title>
+    <meta property="og:title" content="Martin Dybal - Programátor, který pomáhá lidem">
+    <meta property="og:description" content="Programátor, který pomáhá lidem skrze inovativní projekty.">
+    <meta property="og:image" content="https://www.dybal.it/images/profile-photo.jpg">
+    <meta property="og:url" content="https://www.dybal.it/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Martin Dybal - Programátor, který pomáhá lidem">
+    <meta name="twitter:description" content="Programátor, který pomáhá lidem skrze inovativní projekty.">
+    <meta name="twitter:image" content="images/profile-photo.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            
+            @media (max-width: 768px) {
+                margin: 0 auto;
+            }
+        }
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 5px;
+            border-radius: 50%;
+            border: 3px solid #ccc;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: block;
+        }
+        .mvp-badge {
+            width: 60px;
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            transform: translate(0%, 0%);
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+        }
+        a {
+            color: #0073e6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-    <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
-
     <script type="application/ld+json">
     {
-        "@context": "http://schema.org/",
-        "@type": "Person",
-        "name": "Martin Dybal",
-        "image": "https://www.dybal.it/output/img/profile-photo.jpg",
-        "jobTitle": "Software architect",
-        "email": "mailto:martin@dybal.it",
-        "url": "https://www.dybal.it",
-        "sameAs": [
-            "https://twitter.com/Martin_Dybal",
-            "https://www.linkedin.com/in/martin-dybal/",
-            "https://github.com/martindybal/",
-            "https://www.facebook.com/Martin.Dybal"
-        ]
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Martin Dybal",
+      "jobTitle": "Programátor",
+      "description": "Programátor, který pomáhá lidem skrze inovativní projekty.",
+      "image": "https://www.dybal.it/images/profile-photo.jpg",
+      "url": "https://www.dybal.it/",
+      "email": "mailto:martin@dybal.it",
+      "sameAs": [
+        "https://twitter.com/Martin_Dybal",
+        "https://www.linkedin.com/in/martin-dybal/",
+        "https://github.com/martindybal/",
+        "https://www.facebook.com/Martin.Dybal"
+      ]
     }
     </script>
 </head>
-
 <body>
     <div class="container">
-        <section class="about">
-            <div class="about__profile-photo">
-                <amp-img class="about__profile-photo__img" alt="Martin Dybal" sizes="(max-width: 480px) 100px, 150px" width="150px" height="150px" layout="responsive" src="/output/img/profile-photo_150.jpg" srcset="/output/img/profile-photo_100.jpg 100w, /output/img/profile-photo_150.jpg 150w, /output/img/profile-photo_200.jpg 200w, /output/img/profile-photo_250.jpg 250w, /output/img/profile-photo_300.jpg 300w"></amp-img>
-                <noscript>
-                    <!-- There can't be a img, becouse of https://github.com/ampproject/amphtml/issues/19247 -->
-                    <picture>
-                        <source media="(max-width: 480px)" sizes="100px" srcset="/output/img/profile-photo_100.jpg 100w, /output/img/profile-photo_150.jpg 150w, /output/img/profile-photo_200.jpg 200w, /output/img/profile-photo_250.jpg 250w, /output/img/profile-photo_300.jpg 300w">
-                        <source sizes="150px" srcset="/output/img/profile-photo_100.jpg 100w, /output/img/profile-photo_150.jpg 150w, /output/img/profile-photo_200.jpg 200w, /output/img/profile-photo_250.jpg 250w, /output/img/profile-photo_300.jpg 300w">
-                        <img class="about__profile-photo__img" alt="Martin Dybal" src="/output/img/profile-photo_150.jpg">
-                    </picture>
-                </noscript>
-            </div>
-            <div class="about__headline">
-                <h1>
-                    <span class="about__headline__name">Martin Dybal</span><br>
-                    <span class="about__headline__position">Software architect</span>
-                </h1>
-            </div>
-            <nav class="about__links">
-                <a title="linkedIn" class="about__links__link about__links__link--linkedIn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/martin-dybal/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewbox="0 0 24 24">
-                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
-                    </svg>
-                </a>
-                <a title="twitter" class="about__links__link about__links__link--twitter" target="_blank" rel="noopener" href="https://twitter.com/Martin_Dybal/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewbox="0 0 24 24">
-                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                    </svg>
-                </a>
-                <a title="github" class="about__links__link about__links__link--github" target="_blank" rel="noopener" href="https://github.com/martindybal/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewbox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </a>
-                <a title="email" class="about__links__link about__links__link--email" target="_blank" rel="noopener" href="mailto:martin@dybal.it">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewbox="0 0 24 24">
-                        <path d="M12.042 23.648c-7.813 0-12.042-4.876-12.042-11.171 0-6.727 4.762-12.125 13.276-12.125 6.214 0 10.724 4.038 10.724 9.601 0 8.712-10.33 11.012-9.812 6.042-.71 1.108-1.854 2.354-4.053 2.354-2.516 0-4.08-1.842-4.08-4.807 0-4.444 2.921-8.199 6.379-8.199 1.659 0 2.8.876 3.277 2.221l.464-1.632h2.338c-.244.832-2.321 8.527-2.321 8.527-.648 2.666 1.35 2.713 3.122 1.297 3.329-2.58 3.501-9.327-.998-12.141-4.821-2.891-15.795-1.102-15.795 8.693 0 5.611 3.95 9.381 9.829 9.381 3.436 0 5.542-.93 7.295-1.948l1.177 1.698c-1.711.966-4.461 2.209-8.78 2.209zm-2.344-14.305c-.715 1.34-1.177 3.076-1.177 4.424 0 3.61 3.522 3.633 5.252.239.712-1.394 1.171-3.171 1.171-4.529 0-2.917-3.495-3.434-5.246-.134z"/>
-                    </svg>
-                </a>
-            </nav>
-            <div class="about__twitter-timeline">
-                <amp-twitter width="390" height="330" layout="responsive" data-timeline-screen-name="Martin_Dybal" data-timeline-source-type="profile">
-
-                </amp-twitter>
-            </div>
-        </section>
-        <section class="photo">
-            <!-- <span class="photo__title">
-                Dohlédnu na vývoj vašeho software
-            </span> -->
-        </section>
+        <div class="profile-wrapper">
+            <img src="https://www.dybal.it/images/profile-photo.jpg" alt="Martin Dybal" class="profile-img">
+            <a href="https://mvp.microsoft.com/en-US/MVP/profile/948567fd-e6d3-e711-80fd-3863bb2bca60" target="_blank">
+            <img src="https://www.dybal.it/images/MVP-badge.png" alt="Microsoft MVP 2024" class="mvp-badge">
+        </a>
+        </div>
+        <h1>Martin Dybal</h1>
+        <p>Programátor, který pomáhá lidem</p>
+        
+        <h2>Projekty</h2>
+        <ul>
+            <li>
+                <h3><a href="https://www.zachrankaapp.cz/" target="_blank">Aplikace Záchranka</a></h3>
+                <p>Pomáhá ve chvílích, kdy jde o život.</p>
+            </li>
+            <li>
+                <h3><a href="https://restartmuze.cz/" target="_blank">Restart muže</a> a <a href="https://www.dovychovat.cz/" target="_blank">Dovychovat</a></h3>
+                <p>Pomáhají chlapům být úspěšní doma i v práci a rodinám najít více radosti.</p>
+            </li>
+            <li>
+                <h3><a href="https://www.modernijeskyne.cz" target="_blank">Moderní jeskyně</a></h3>
+                <p>Smart home řešení, které pomáhá zlepšit přirozený cirkadiánní rytmus.</p>
+            </li>
+        </ul>
+        <h2>Kontakt</h2>
+        <p>
+            <a href="https://www.linkedin.com/in/martin-dybal/" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com/martindybal/" target="_blank">GitHub</a> | 
+            <a href="mailto:martin@dybal.it">E-mail</a>
+        </p>
+        <hr style="border: 0; height: 1px; background-color: #ccc; margin: 20px 0;">
+        <p>Programování mě baví. Podnikání mi vnáší svobodu a smysl do života.</p>
     </div>
-
-    <amp-analytics type="gtag" data-credentials="include">
-        <script type="application/json">
-        {
-            "vars" : {
-                "gtag_id": "UA-129033963-1",
-                "config" : {
-                    "UA-129033963-1": { "groups": "default" }
-                }
-            }
-        }
-        </script>
-    </amp-analytics>
 </body>
-
 </html>
