@@ -30,7 +30,6 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            
             @media (max-width: 768px) {
                 margin: 0 auto;
             }
@@ -56,6 +55,23 @@
             transform: translate(0%, 0%);
             border-radius: 50%;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        dialog {
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .dialog-content {
+            text-align: left;
+        }
+        .close-btn {
+            background: #ccc;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
         }
         h1, h2, h3 {
             color: #333;
@@ -110,12 +126,11 @@
         <div class="profile-wrapper">
             <img src="https://www.dybal.it/images/profile-photo.jpg" alt="Martin Dybal" class="profile-img">
             <a href="https://mvp.microsoft.com/en-US/MVP/profile/948567fd-e6d3-e711-80fd-3863bb2bca60" target="_blank">
-            <img src="https://www.dybal.it/images/MVP-badge.png" alt="Microsoft MVP 2024" class="mvp-badge">
-        </a>
+                <img src="https://www.dybal.it/images/MVP-badge.png" alt="Microsoft MVP 2024" class="mvp-badge">
+            </a>
         </div>
         <h1>Martin Dybal</h1>
         <p>Programátor, který pomáhá lidem</p>
-        
         <h2>Projekty</h2>
         <ul>
             <li>
@@ -135,10 +150,22 @@
         <p>
             <a href="https://www.linkedin.com/in/martin-dybal/" target="_blank">LinkedIn</a> | 
             <a href="https://github.com/martindybal/" target="_blank">GitHub</a> | 
-            <a href="mailto:martin@dybal.it">E-mail</a>
+            <a href="mailto:martin@dybal.it">E-mail</a> |
+            <a href="#" onclick="document.getElementById('billing-address-dialog').showModal(); return false;">Fakturační údaje</a>
         </p>
         <hr style="border: 0; height: 1px; background-color: #ccc; margin: 20px 0;">
         <p>Programování mě baví. Podnikání mi vnáší svobodu a smysl do života.</p>
     </div>
+
+    <dialog id="billing-address-dialog">
+        <div class="dialog-content">
+            <h3>Fakturační údaje</h3>
+            <p><strong>IČO:</strong> 03560996</p>
+            <p><strong>DIČ:</strong> CZ9305125005</p>
+            <p><strong>Adresa:</strong> Martin Dybal, Březolupy 132, 687 13</p>
+            <button class="close-btn" onclick="document.getElementById('billing-address-dialog').close(); return false;">Zavřít</button>
+        </div>
+    </dialog>
 </body>
+
 </html>
