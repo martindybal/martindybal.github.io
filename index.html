@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +23,7 @@
             background-color: #f4f4f4;
             text-align: center;
         }
+
         .container {
             max-width: 600px;
             margin: 50px auto;
@@ -30,10 +32,12 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
+
             @media (max-width: 768px) {
                 margin: 0 auto;
             }
         }
+
         .profile-wrapper {
             position: relative;
             display: inline-block;
@@ -41,12 +45,14 @@
             border-radius: 50%;
             border: 3px solid #ccc;
         }
+
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             display: block;
         }
+
         .mvp-badge {
             width: 60px;
             position: absolute;
@@ -56,15 +62,18 @@
             border-radius: 50%;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
+
         dialog {
             border: none;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
+
         .dialog-content {
             text-align: left;
         }
+
         .close-btn {
             background: #ccc;
             border: none;
@@ -73,24 +82,32 @@
             border-radius: 5px;
             font-size: 14px;
         }
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             color: #333;
         }
+
         p {
             color: #666;
         }
+
         ul {
             list-style: none;
             padding: 0;
         }
+
         ul li {
             margin: 10px 0;
         }
+
         a {
             color: #0073e6;
             text-decoration: none;
             font-weight: bold;
         }
+
         a:hover {
             text-decoration: underline;
         }
@@ -114,13 +131,14 @@
     }
     </script>
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "qj6a6a1fgj");
     </script>
 </head>
+
 <body>
     <div class="container">
         <div class="profile-wrapper">
@@ -138,20 +156,24 @@
                 <p>Pomáhá ve chvílích, kdy jde o život.</p>
             </li>
             <li>
-                <h3><a href="https://restartmuze.cz/" target="_blank">Restart muže</a> a <a href="https://www.dovychovat.cz/" target="_blank">Dovychovat</a></h3>
+                <h3><a href="https://restartmuze.cz/" target="_blank">Restart muže</a> a <a
+                        href="https://www.dovychovat.cz/" target="_blank">Dovychovat</a></h3>
                 <p>Pomáhají chlapům být úspěšní doma i v práci a rodinám najít více radosti.</p>
             </li>
             <li>
-                <h3><a href="https://github.com/martindybal/taphome-homeassistant/" target="_blank">Moderní jeskyně</a></h3>
+                <h3><a href="https://github.com/martindybal/taphome-homeassistant/" target="_blank">Moderní jeskyně</a>
+                </h3>
                 <p>Smart home řešení navržené pro zdraví, spánek a přirozený cirkadiánní rytmus.</p>
             </li>
         </ul>
         <h2>Kontakt</h2>
         <p>
-            <a href="https://www.linkedin.com/in/martin-dybal/" target="_blank">LinkedIn</a> | 
-            <a href="https://github.com/martindybal/" target="_blank">GitHub</a> | 
+            <a href="https://www.linkedin.com/in/martin-dybal/" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/martindybal/" target="_blank">GitHub</a> |
             <a href="mailto:martin@dybal.it">E-mail</a> |
-            <a href="#" onclick="document.getElementById('billing-address-dialog').showModal(); return false;">Fakturační údaje</a>
+            <a href="#"
+                onclick="document.getElementById('billing-address-dialog').showModal(); return false;">Fakturační
+                údaje</a>
         </p>
         <hr style="border: 0; height: 1px; background-color: #ccc; margin: 20px 0;">
         <p>Programování mě baví. Podnikání mi vnáší svobodu a smysl do života.</p>
@@ -163,10 +185,27 @@
             <p><strong>IČO:</strong> 03560996</p>
             <p><strong>DIČ:</strong> CZ9305125005</p>
             <p><strong>Adresa:</strong> Martin Dybal, Březolupy 132, 687 13</p>
-            <button class="close-btn" onclick="document.getElementById('billing-address-dialog').close(); return false;">Zavřít</button>
+            <button class="close-btn"
+                onclick="document.getElementById('billing-address-dialog').close(); return false;">Zavřít</button>
         </div>
     </dialog>
+    
+    <script type="module">
+        import Snowflakes from "https://cdn.skypack.dev/magic-snowflakes";
+
+        if (isChristmasSeason()) {
+            new Snowflakes();
+        }
+
+        function isChristmasSeason() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const christmasEve = new Date(year, 11, 24);
+            const firstAdventSunday = new Date(christmasEve).setDate(christmasEve.getDate() - christmasEve.getDay() - 21);
+            const epiphany = new Date(year + 1, 0, 6);
+            return today >= firstAdventSunday && today <= epiphany;
+        }
+    </script>
 </body>
 
 </html>
-
