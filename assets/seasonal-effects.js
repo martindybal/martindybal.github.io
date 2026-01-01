@@ -1,7 +1,7 @@
 import Snowflakes from "https://cdn.skypack.dev/magic-snowflakes";
 import { Fireworks } from "https://cdn.skypack.dev/fireworks-js";
 
-if (isChristmasSeason()) {
+if (isChristmasSeason() && !isNewYearCelebration()) {
     new Snowflakes();
 }
 
@@ -67,9 +67,19 @@ if (isNewYearCelebration()) {
 function isChristmasSeason() {
     const today = new Date();
     const year = today.getFullYear();
-    const christmasEve = new Date(year, 11, 24);
-    const firstAdventSunday = new Date(christmasEve).setDate(christmasEve.getDate() - christmasEve.getDay() - 21);
-    const epiphany = new Date(year, 0, 6);
+    const month = today.getMonth();
+    
+    // If we're in January, check against previous year's Christmas season
+    const christmasYear = month === 0 ? year - 1 : year;
+    
+    // Calculate first Advent Sunday (4th Sunday before Christmas Eve)
+    const christmasEve = new Date(christmasYear, 11, 24);
+    const firstAdventSunday = new Date(christmasEve);
+    firstAdventSunday.setDate(christmasEve.getDate() - christmasEve.getDay() - 21);
+    
+    // Epiphany is January 6 of the year after Christmas
+    const epiphany = new Date(christmasYear + 1, 0, 6);
+    
     return today >= firstAdventSunday && today <= epiphany;
 }
 
