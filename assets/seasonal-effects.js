@@ -16,7 +16,7 @@ if (isNewYearCelebration()) {
     container.style.zIndex = '9999';
     document.body.appendChild(container);
     
-    const fireworks = new Fireworks.default(temp1)
+    const fireworks = new Fireworks(container)
     fireworks.start();
 }
 
