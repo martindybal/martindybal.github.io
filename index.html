@@ -206,10 +206,11 @@
             const year = today.getFullYear();
             const christmasEve = new Date(year, 11, 24);
             const firstAdventSunday = new Date(christmasEve).setDate(christmasEve.getDate() - christmasEve.getDay() - 21);
-            const epiphany = new Date(year + 1, 0, 6);
+            const epiphany = new Date(year, 0, 6);
             return today >= firstAdventSunday && today <= epiphany;
         }
     </script>
 </body>
+
 
 </html>
