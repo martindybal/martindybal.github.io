@@ -1,28 +1,36 @@
 if (isChristmasSeason() && !isNewYearCelebration()) {
-  import("https://cdn.skypack.dev/magic-snowflakes").then((module) => {
-    const Snowflakes = module.default;
-    new Snowflakes();
-  });
+  import("https://cdn.skypack.dev/magic-snowflakes")
+    .then((module) => {
+      const Snowflakes = module.default;
+      new Snowflakes();
+    })
+    .catch((error) => {
+      console.error("Failed to load snowflakes effect:", error);
+    });
 }
 
 if (isNewYearCelebration()) {
-  import("https://cdn.skypack.dev/fireworks-js").then((module) => {
-    const { Fireworks } = module;
-    
-    const container = document.createElement("div");
-    container.style.position = "fixed";
-    container.style.top = "0";
-    container.style.left = "0";
-    container.style.width = "100%";
-    container.style.height = "100%";
-    container.style.pointerEvents = "none";
-    container.style.zIndex = "9999";
+  import("https://cdn.skypack.dev/fireworks-js")
+    .then((module) => {
+      const { Fireworks } = module;
+      
+      const container = document.createElement("div");
+      container.style.position = "fixed";
+      container.style.top = "0";
+      container.style.left = "0";
+      container.style.width = "100%";
+      container.style.height = "100%";
+      container.style.pointerEvents = "none";
+      container.style.zIndex = "9999";
 
-    document.body.appendChild(container);
+      document.body.appendChild(container);
 
-    const fireworks = new Fireworks(container);
-    fireworks.start();
-  });
+      const fireworks = new Fireworks(container);
+      fireworks.start();
+    })
+    .catch((error) => {
+      console.error("Failed to load fireworks effect:", error);
+    });
 }
 
 function isChristmasSeason() {
