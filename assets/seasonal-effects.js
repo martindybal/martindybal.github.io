@@ -31,30 +31,30 @@
 })();
 
 function isChristmasSeason() {
+  const january = 0;
+  const november = 10;
+
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth();
 
-  var january = 0;
-  var november = 10;
   if (month >= november) {
     const christmasEve = new Date(year, 11, 24);
     const firstAdventSunday = new Date(christmasEve).setDate(
       christmasEve.getDate() - christmasEve.getDay() - 21
     );
     return today >= firstAdventSunday;
-  } else if (month == january) {
-    const epiphany = new Date(year, 0, 6);
-    return today <= epiphany;
   }
 
-  return false;
+  return month == january && today.getDate() <= 6;
 }
 
 function isNewYearCelebration() {
   const today = new Date();
   const month = today.getMonth();
   const day = today.getDate();
-  // December 31st (month is 11 for December) or January 1st (month is 0 for January)
-  return (month === 11 && day === 31) || (month === 0 && day === 1);
+
+  const january = 0;
+  const december = 11;
+  return (month === december && day === 31) || (month === january && day === 1);
 }
