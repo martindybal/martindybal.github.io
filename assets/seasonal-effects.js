@@ -1,17 +1,17 @@
-if (isChristmasSeason() && !isNewYearCelebration()) {
-  import("https://cdn.skypack.dev/magic-snowflakes")
-    .then((module) => {
+(async () => {
+  if (isChristmasSeason() && !isNewYearCelebration()) {
+    try {
+      const module = await import("https://cdn.skypack.dev/magic-snowflakes");
       const Snowflakes = module.default;
       new Snowflakes();
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error("Failed to load snowflakes effect:", error);
-    });
-}
+    }
+  }
 
-if (isNewYearCelebration()) {
-  import("https://cdn.skypack.dev/fireworks-js")
-    .then((module) => {
+  if (isNewYearCelebration()) {
+    try {
+      const module = await import("https://cdn.skypack.dev/fireworks-js");
       const { Fireworks } = module;
       
       const container = document.createElement("div");
@@ -27,11 +27,11 @@ if (isNewYearCelebration()) {
 
       const fireworks = new Fireworks(container);
       fireworks.start();
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error("Failed to load fireworks effect:", error);
-    });
-}
+    }
+  }
+})();
 
 function isChristmasSeason() {
   const today = new Date();
