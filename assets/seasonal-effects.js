@@ -1,8 +1,7 @@
 (async () => {
   if (isChristmasSeason() && !isNewYearCelebration()) {
     try {
-      const module = await import("https://cdn.skypack.dev/magic-snowflakes");
-      const Snowflakes = module.default;
+      const { default: Snowflakes } = await import("https://cdn.skypack.dev/magic-snowflakes");
       new Snowflakes();
     } catch (error) {
       console.error("Failed to load snowflakes effect:", error);
@@ -11,9 +10,7 @@
 
   if (isNewYearCelebration()) {
     try {
-      const module = await import("https://cdn.skypack.dev/fireworks-js");
-      const { Fireworks } = module;
-      
+      const { Fireworks } = await import("https://cdn.skypack.dev/fireworks-js");
       const container = document.createElement("div");
       container.style.position = "fixed";
       container.style.top = "0";
