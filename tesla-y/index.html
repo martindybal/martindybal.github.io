@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Přejímka Tesla Model Y</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body { -webkit-tap-highlight-color: transparent; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        
+        .pdf-mode { background-color: white !important; color: black !important; }
+        .pdf-mode .no-print { display: none !important; }
+        .pdf-mode details { border: none !important; margin-bottom: 0.5rem !important; }
+        .pdf-mode details summary { padding: 0.5rem 0 !important; font-size: 1.25rem !important; font-weight: bold !important; background: transparent !important; }
+        .pdf-mode details summary svg { display: none !important; }
+        .pdf-mode .item-container { border-bottom: 1px solid #e5e7eb !important; padding: 0.5rem 0 !important; break-inside: avoid; }
+        .pdf-mode .note-container { display: block !important; }
+        .pdf-mode textarea { display: none !important; }
+        .pdf-mode .print-note-text { display: block !important; color: #374151; font-style: italic; margin-top: 0.25rem; padding-left: 2.25rem; }
+        .pdf-mode input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 1.2rem; height: 1.2rem; border: 2px solid #000; border-radius: 3px; position: relative; margin-top: 0.2rem; background: white; }
+        .pdf-mode input[type="checkbox"]:checked::after { content: '✔'; position: absolute; top: -4px; left: 1px; font-size: 1.2rem; color: black; }
+        .pdf-mode .line-through { text-decoration: none !important; color: black !important; }
+        
+        .print-note-text { display: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans pb-32 transition-colors duration-200">
+
+    <div id="export-content" class="bg-gray-50 min-h-screen">
+        <header class="bg-white shadow-sm sticky top-0 z-40 no-print">
+            <div class="max-w-3xl mx-auto px-4 py-4 flex justify-between items-center">
+                <h1 class="text-xl font-bold text-gray-800">Přejímka Tesla Y</h1>
+                <div class="text-sm font-semibold text-blue-600" id="progress-text">0 / 0</div>
+            </div>
+            <div class="h-1 bg-gray-200 w-full no-print">
+                <div id="progress-bar" class="h-full bg-blue-600 transition-all duration-300 w-0"></div>
+            </div>
+        </header>
+
+        <main class="max-w-3xl mx-auto px-4 mt-6" id="checklist-container"></main>
+
+        <div class="max-w-3xl mx-auto px-4 mt-8 pb-8 flex justify-center no-print">
+            <button onclick="clearData()" class="text-sm text-red-500 font-semibold py-2 px-4 rounded-lg active:bg-red-50 transition-colors">
+                Smazat veškerá data
+            </button>
+        </div>
+    </div>
+
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 pb-safe no-print shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50">
+        <button id="export-btn" onclick="exportPDF()" class="w-full max-w-3xl mx-auto block bg-blue-600 text-white py-3 rounded-xl font-bold text-lg active:bg-blue-700 transition-colors shadow-sm disabled:opacity-50">
+            Exportovat do PDF
+        </button>
+    </div>
+
+    <script>
+        const data = [
+            {
+                category: "S sebou",
+                items: [
+                    "Občanku, řidičák (peněženku)",
+                    "Dokumenty - NBR, pojištění, vinkulace, RL smlouvu"
+                ]
+            },
+            {
+                category: "Uzamčeno zvenku",
+                items: [
+                    "VIN vozidla odpovídá přidělenému VIN",
+                    "Barva",
+                    "Kola - velikost, černé kryty",
+                    "Je poskytnuto pouzdro se dvěma klíči (kartami)",
+                    "Světla dobře sedí (slícování)",
+                    "Lak kolem sacích otvorů na předním nárazníku",
+                    "Frunk - promáčkliny a známky nesprávného zavření po stranách loga T",
+                    "Slícování, mezery mezi plechy, světly apod.",
+                    "Čelní sklo správně nainstalované",
+                    "Lišta podél spodní části boků vozidla v rovině se spodní částí dveří",
+                    "Všechny čtyři páčky (kliky) dveří slícované",
+                    "Poškrábání kol",
+                    "Kola - v dezénu není nic zaseknutého",
+                    "Všechny čtyři kryty nábojů (poklice)",
+                    "Lak a promáčkliny zvenčí a na vnitřních stranách dveří (rohy panelů nejsou oštípané)",
+                    "Nepoškozené černé prahy",
+                    "Nabíjecí port dobře sedí",
+                    "Zadní světla, zda v nich není kondenzace",
+                    "Podvozek - poškození, chybějící šrouby nebo šrouby, které vyčnívají",
+                    "Podběhy kol - plastové čepy přítomny (nejsou žádné prázdné otvory), kovové čepy přítomny a připevněny",
+                    "Ochranná průhledná folie na zadních dveřích"
+                ]
+            },
+            {
+                category: "Odemčeno zvenku",
+                items: [
+                    "Skla - škrábance, praskliny, deformace",
+                    "Poškození okenních lišt",
+                    "Nabíjecí port se otevírá a zavírá",
+                    "Těsnění proti povětrnostním vlivům kolem mezer dveří a oken",
+                    "Ochranné kryty proti vodě pod zadním oknem jsou čisté"
+                ]
+            },
+            {
+                category: "Interiér",
+                items: [
+                    "Obrazovka - bez škrábanců",
+                    "Středová konzole - škrábance, promáčkliny",
+                    "Palubní deska - bez škrábanců a poškození dýhy/dekoru",
+                    "Bezdrátové nabíjení funguje na obou stranách",
+                    "Otevřete a zavřete přihrádku na rukavice (přes displej)",
+                    "Přítomen USB disk v přihrádce pro Sentry / Dashcam",
+                    "Okna - otevření a zavření jedním kliknutím i ručně (bez pazvuků, přední jdou zcela dolů)",
+                    "Funkčnost kamery pro couvání (a bočních kamer)",
+                    "Sklápění zrcátek",
+                    "Čelní sklo po celém obvodu zevnitř",
+                    "Stropnice po celém interiéru (nesmí být mastná, poškozená nebo poškrábaná)",
+                    "Volant - přední a zadní strana bez škrábanců nebo trhlin",
+                    "Ovládací páčky - směrová světla a volba jízdy fungují a plynule se pohybují",
+                    "Prahy dveří (zvlášť u spolujezdce) bez škrábanců",
+                    "Sedadla - oděrky, poškození, špatné švy",
+                    "Podlahové rohože - nejsou roztržené nebo znečištěné",
+                    "Kovová ramena pedálů plynu a brzdy (kontrola povrchové úpravy a svárů)",
+                    "Klimatizace a tepelné čerpadlo - otestovat extrémní teploty, poslech na hlasité zvuky"
+                ]
+            },
+            {
+                category: "Frunk (přední kufr)",
+                items: [
+                    "Otevřete a zavřete frunk",
+                    "Klipy držící obložení kolem frunku jsou správně připevněny",
+                    "Nechybí tažné oko, lékárnička, trojúhelník"
+                ]
+            },
+            {
+                category: "Trunk (zadní kufr)",
+                items: [
+                    "Otevřete a zavřete zadní výklopné dveře (pozor na zachytávání těsnění v liště)",
+                    "Funkčnost elektrického zavírání kufru a nastavení výšky",
+                    "Těsnění kolem mezer dveří a oken",
+                    "Ochranné kryty proti vodě pod zadním oknem jsou čisté",
+                    "Zadní sedadla - vizuální stav z kufru",
+                    "Tlačítka pro sklápění zadních sedadel v kufru fungují",
+                    "Při sklápění zadních sedadel nedochází k zachycení o koberec na podlaze kufru",
+                    "Dvojitá podlaha kufru (vaničky) bez poškození",
+                    "Tažné zařízení (pokud bylo objednáno)",
+                    "Držák přední poznávací značky přítomen"
+                ]
+            },
+            {
+                category: "Další",
+                items: [
+                    "Bezpečnostní pásy - zacvaknutí a navíjení",
+                    "Tažné zařízení je zapsáno v COC listu",
+                    "Základní výbava (kabely k nabíjení - UMC, Type 2)"
+                ]
+            }
+        ];
+
+        const STORAGE_KEY = 'teslaYData';
+        let state = {};
+        let totalItems = 0;
+
+        function loadState() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) state = JSON.parse(saved);
+            } catch (e) {}
+        }
+
+        function saveState() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            } catch (e) {}
+        }
+
+        function init() {
+            loadState();
+            const container = document.getElementById('checklist-container');
+            container.innerHTML = '';
+            totalItems = 0;
+            let html = '';
+
+            data.forEach((section, sIndex) => {
+                html += `
+                <details class="mb-4 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden" open>
+                    <summary class="px-5 py-4 font-bold text-lg bg-gray-50 flex justify-between items-center cursor-pointer select-none" onclick="toggleIcon(this)">
+                        ${section.category}
+                        <svg class="w-5 h-5 text-gray-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <div class="px-2 pb-2">`;
+
+                section.items.forEach((item, iIndex) => {
+                    const id = `item-${sIndex}-${iIndex}`;
+                    totalItems++;
+                    
+                    const isChecked = state[id]?.checked || false;
+                    const note = state[id]?.note || '';
+                    const labelClass = isChecked ? 'text-gray-400 line-through' : 'text-gray-800';
+
+                    html += `
+                        <div class="item-container flex flex-col border-b border-gray-100 last:border-0 p-3">
+                            <div class="flex items-start gap-3 w-full">
+                                <input type="checkbox" id="${id}" onchange="handleCheck('${id}', this.checked)" class="mt-1 accent-blue-600 focus:ring-blue-500 rounded flex-shrink-0 w-6 h-6 border-gray-300" ${isChecked ? 'checked' : ''}>
+                                <div class="flex-1 pt-1">
+                                    <label for="${id}" id="label-${id}" class="block text-base select-none leading-snug ${labelClass}">${item}</label>
+                                </div>
+                                <button type="button" class="no-print text-gray-400 hover:text-blue-600 p-2 ml-1 rounded-lg transition-colors" onclick="toggleNoteField('${id}')">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                                </button>
+                            </div>
+                            <div id="note-wrapper-${id}" class="note-container w-full pl-9 pr-2 mt-2 ${note ? 'block' : 'hidden'}">
+                                <textarea id="note-${id}" oninput="handleNote('${id}', this.value)" class="w-full text-sm p-3 border border-gray-200 rounded-lg focus:ring-1 focus:ring-blue-500 outline-none resize-none bg-yellow-50" placeholder="Přidat poznámku..." rows="2">${note}</textarea>
+                                <div id="print-note-${id}" class="print-note-text">${note ? 'Poznámka: ' + note : ''}</div>
+                            </div>
+                        </div>`;
+                });
+
+                html += `</div></details>`;
+            });
+
+            container.innerHTML = html;
+            updateProgress();
+        }
+
+        function handleCheck(id, checked) {
+            if (!state[id]) state[id] = {};
+            state[id].checked = checked;
+            saveState();
+            
+            const label = document.getElementById(`label-${id}`);
+            if (checked) {
+                label.classList.add('text-gray-400', 'line-through');
+                label.classList.remove('text-gray-800');
+            } else {
+                label.classList.remove('text-gray-400', 'line-through');
+                label.classList.add('text-gray-800');
+            }
+            updateProgress();
+        }
+
+        function handleNote(id, value) {
+            if (!state[id]) state[id] = {};
+            state[id].note = value;
+            saveState();
+            
+            const printNode = document.getElementById(`print-note-${id}`);
+            if (printNode) printNode.innerText = value ? 'Poznámka: ' + value : '';
+        }
+
+        function toggleIcon(summaryElement) {
+            const svg = summaryElement.querySelector('svg');
+            const details = summaryElement.parentElement;
+            if (!details.hasAttribute('open')) {
+                svg.classList.remove('rotate-180');
+            } else {
+                svg.classList.add('rotate-180');
+            }
+        }
+
+        function toggleNoteField(id) {
+            const wrapper = document.getElementById(`note-wrapper-${id}`);
+            wrapper.classList.toggle('hidden');
+            if (!wrapper.classList.contains('hidden')) {
+                document.getElementById(`note-${id}`).focus();
+            }
+        }
+
+        function clearData() {
+            if (confirm('Opravdu chcete smazat veškerý postup a poznámky? Tato akce je nevratná.')) {
+                try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+                state = {};
+                init();
+            }
+        }
+
+        function updateProgress() {
+            const checkedCount = Object.values(state).filter(item => item.checked).length;
+            document.getElementById('progress-text').innerText = `${checkedCount} / ${totalItems}`;
+            const percent = totalItems === 0 ? 0 : (checkedCount / totalItems) * 100;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+        }
+
+        function exportPDF() {
+            const btn = document.getElementById('export-btn');
+            const originalText = btn.innerText;
+            btn.innerText = 'Generuji PDF...';
+            btn.disabled = true;
+
+            document.querySelectorAll('details').forEach(d => d.open = true);
+            const contentDiv = document.getElementById('export-content');
+            
+            contentDiv.classList.add('pdf-mode');
+
+            const opt = {
+                margin:       10,
+                filename:     'Tesla-Model-Y-Prejimka.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(contentDiv).save().then(() => {
+                contentDiv.classList.remove('pdf-mode');
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }).catch(err => {
+                console.error(err);
+                contentDiv.classList.remove('pdf-mode');
+                btn.innerText = originalText;
+                btn.disabled = false;
+                alert('Při generování PDF došlo k chybě.');
+            });
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
